@@ -6,7 +6,9 @@
     <title>bidedeji bidedezi - ビデデジ</title>
     <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgEc1-0wOXlJFT-KZFzqxiksCApY5temi8FdbVa3Wzqj6GxkIJAG3XdXwvmKyFkUx34_gdU7Ap-YNNAoFGFZ1d3Z-7Wffjntb06Uw8stTh_FXAQI_-nwwlh-eddGHMAU-a0G_7buF2PHWbgWc4B7URzE-N9hxGKkkDwv3YuHzwd2i0_cRo/s1600/%25E5%2590%258D%25E7%25A7%25B0%25E6%259C%25AA%25E8%25A8%25AD%25E5%25AE%259A%25E3%2581%25AE%25E3%2583%2587%25E3%2582%25B6%25E3%2582%25A4%25E3%2583%25B3.png">
     <style>
-        *,
+@import "https://use.fontawesome.com/releases/v5.13.0/css/all.css";
+
+*,
 *:before,
 *:after {
   -webkit-box-sizing: inherit;
@@ -17,6 +19,11 @@ html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 62.5%;
+}
+
+/* 背景用*/
+body {
+  padding: 30px;
 }
 
 .btn,
@@ -43,51 +50,138 @@ button.btn {
   border-radius: 0.5rem;
 }
 
-/*背景*/
-.btn-wrap {
-  margin: 20px;
+a.btn-3d-flip {
+  display: block;
+
+  width: 200px;
+  margin: 0 auto;
+  padding: 0;
+
+  -webkit-perspective: 600px;
+
+  perspective: 600px;
 }
 
-a.btn-switch {
-  color: #333;
-  border: 1px solid #ddd;
-  border-radius: 100vh;
-  background: #fbfbfc;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#fbfbfc),
-    to(#dcddde)
-  );
-  background: -webkit-linear-gradient(top, #fbfbfc 0%, #dcddde 100%);
-  background: linear-gradient(180deg, #fbfbfc 0%, #dcddde 100%);
-  -webkit-box-shadow: -1px -5px 6px rgba(0, 0, 0, 0.2), 3px 3px 5px white,
-    0 10px 10px rgba(0, 0, 0, 0.1), inset 0 -4px 5px rgba(0, 0, 0, 0.1);
-  box-shadow: -1px -5px 6px rgba(0, 0, 0, 0.2), 3px 3px 5px white,
-    0 10px 10px rgba(0, 0, 0, 0.1), inset 0 -4px 5px rgba(0, 0, 0, 0.1);
+a.btn-3d-flip:hover .btn-3d-flip-box {
+  -webkit-transform: translateY(-50%) rotateX(90deg);
+  transform: translateY(-50%) rotateX(90deg);
 }
 
-a.btn-switch span {
-  display: inline-block;
-
-  -webkit-transition: all 0.3s;
-
-  transition: all 0.3s;
+a.btn-3d-flip.btn-3d-flip2:hover .btn-3d-flip-box2 {
+  -webkit-transform: translateX(-50%) rotateY(-90deg);
+  transform: translateX(-50%) rotateY(-90deg);
 }
 
-a.btn-switch:hover {
-  -webkit-box-shadow: -1px -5px 6px rgba(0, 0, 0, 0.2), 3px 3px 5px white,
-    0 10px 10px rgba(0, 0, 0, 0.1), inset 0 -4px 5px rgba(0, 0, 0, 0.1),
-    inset 0 3px 3px rgba(0, 0, 0, 0.18);
-  box-shadow: -1px -5px 6px rgba(0, 0, 0, 0.2), 3px 3px 5px white,
-    0 10px 10px rgba(0, 0, 0, 0.1), inset 0 -4px 5px rgba(0, 0, 0, 0.1),
-    inset 0 3px 3px rgba(0, 0, 0, 0.18);
+.btn-3d-flip-box {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+  margin: auto;
+
+  -webkit-transition: all 0.4s;
+
+  transition: all 0.4s;
+  -webkit-transform: rotateX(0);
+  transform: rotateX(0);
+  text-decoration: none;
+  text-transform: uppercase;
+
+  color: #fff;
+
+  -webkit-transform-style: preserve-3d;
+
+  transform-style: preserve-3d;
 }
 
-a.btn-switch:hover span {
-  -webkit-transform: scale(0.96);
-  transform: scale(0.96);
+.btn-3d-flip-box2 {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+  margin: auto;
+
+  -webkit-transition: all 0.4s;
+
+  transition: all 0.4s;
+  -webkit-transform: rotateY(0);
+  transform: rotateY(0);
+  text-decoration: none;
+  text-transform: uppercase;
+
+  color: #fff;
+
+  -webkit-transform-style: preserve-3d;
+
+  transform-style: preserve-3d;
+}
+
+.btn-3d-flip-box-face {
+  display: block;
+  position: relative;
+
+  width: 100%;
+  padding: 1.5rem 0;
+
+  -webkit-transition: all 0.4s;
+
+  transition: all 0.4s;
+
+  color: #fff;
+
+  -webkit-backface-visibility: hidden;
+
+  backface-visibility: hidden;
+}
+
+.btn-3d-flip-box-face--front {
+  background: #eb6100;
+}
+
+.btn-3d-flip-box-face--back {
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  -webkit-transform: translateY(-1px) rotateX(-90deg);
+
+  transform: translateY(-1px) rotateX(-90deg);
+  -webkit-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+
+  background: #dc5b00;
+}
+
+.btn-3d-flip-box-face--front2 {
+  color: #000;
+  border: 2px solid #000;
+  background: #fff;
+}
+
+.btn-3d-flip-box-face--back2 {
+  position: absolute;
+  top: 0;
+  left: 100%;
+
+  -webkit-transform: translateX(-1px) rotateY(90deg);
+
+  transform: translateX(-1px) rotateY(90deg);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+
+  color: #fff;
+  border: 2px solid #000;
+  background: #000;
+}
+
+.fa-position-right {
+  position: absolute;
+  top: calc(50% - 0.5em);
+  right: 1rem;
 }
         body {
             display: flex;
@@ -101,9 +195,11 @@ a.btn-switch:hover span {
         
     </style>
 </head>
-<body>
-    <div class="btn-wrap">
-        <a href="https://lit.link/videdegi" class="btn btn-switch"><span>ビデデジの<br>サービスまとめ<br>「ビデデジについて知る」</span></a>
-      </div>
-</body>
+<a href="https://lit.link/videdegi" class="btn btn-3d-flip">
+    <span class="btn-3d-flip-box">
+      <span class="btn-3d-flip-box-face btn-3d-flip-box-face--front">ビデデジを知る<i class="fas fa-angle-right fa-position-right"></i></span>
+      <span class="btn-3d-flip-box-face btn-3d-flip-box-face--back">サービスまとめ<i class="fas fa-angle-right fa-position-right"></i></span>
+    </span>
+  </a>
 </html>
+
